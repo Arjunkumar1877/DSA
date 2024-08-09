@@ -1,2 +1,5 @@
-console.log("linked list");
-console.log("lsidnf");
+class LinkedLIst {
+constructor (){
+    
+}
+}
