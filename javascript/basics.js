@@ -349,7 +349,6 @@ promise.then((message) => {
 
 
 
-
 // Async/Await
 async function fetchData2() {
     let promise = new Promise((resolve, reject)=>{

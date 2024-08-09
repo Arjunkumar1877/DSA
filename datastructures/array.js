@@ -173,7 +173,7 @@
 
 
 
-
+console.log("object")
 // Binary search
 // O(logn)
 // function binarySearch(arr, target){
