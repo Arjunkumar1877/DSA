@@ -161,14 +161,14 @@ class LinkedList {
   }
 }
 
-const LL = new LinkedList();
+// const LL = new LinkedList();
 
-LL.addAtStart(100);
-LL.addAtStart(200);
-LL.addAtStart(300);
-LL.addAtStart(400);
-LL.addAtStart(500);
-LL.addAtStart(600);
+// LL.addAtStart(100);
+// LL.addAtStart(200);
+// LL.addAtStart(300);
+// LL.addAtStart(400);
+// LL.addAtStart(500);
+// LL.addAtStart(600);
 // LL.addAtEnd(400);
 // LL.addAtEnd(500);
 // LL.removeNode(300);
@@ -177,8 +177,11 @@ LL.addAtStart(600);
 // LL.removeAtIndex(0);
 // LL.reverse();
 // LL.addIndexAt(3, 50000)
-LL.recursiveReverse()
-LL.print();
+// LL.recursiveReverse()
+// LL.print();
 // LL.findMiddle();
 // LL.findSecondLastElement()
 // console.log(LL);
+
+
+

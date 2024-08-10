@@ -152,6 +152,28 @@ async function fetchData2() {
 
 
 
+// Promise 
+function fetchData() {
+        return new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+          const data = ["Apple", "orange"];
+          resolve(data);
+            },2000)
+        })
+}
+
+function displayData(data){
+   console.log("Fetch data: " , data);
+}
+
+fetchData().then(displayData).catch(error => console.log(error))
+
+
+
+
+
+
+
 
 
 // Recursive Function
@@ -191,4 +213,91 @@ const multipleF = (x)=>{
 }
 
 const AddAndMultiply = compose(addF, multipleF);
-console.log(AddAndMultiply(2))
+// console.log(AddAndMultiply(2));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// -----------------------------------------------------APPLICATIONS OF CLOSURE =--------------------------------------------------------------------------
+// Data privacy / encapsulation
+
+function createCounter(){
+    let count = 0;
+
+    return{
+        increment: function(){
+            count++;
+        },
+
+        getCount: function(){
+            return console.log(count)
+        }
+    }
+}
+
+
+const counter2 = createCounter();
+// counter2.increment()
+// counter2.increment()
+// counter2.increment()
+// counter2.increment()
+// counter2.getCount()
+
+
+
+
+
+
+
+// Module pattern
+const calculate = (function(){
+    let result = 0;
+
+    return {
+        add: function(num){
+            result += num;
+        },
+        substract: function(num){
+            result -= num;
+        },
+        getResult: function(){
+            return result;
+        }
+    }
+})();
+
+calculate.add(100);
+calculate.substract(5)
+
+// console.log(calculate.getResult());
+
+
+
+
+
+
+
+// Event handlers
+function setUpButton(){
+    let count = 0;
+    const button = document.getElementById('myButton');
+
+    button.addEventListener('click', function(){
+        count++;
+        console.log(`Button clicked ${count} times`);
+    })
+}
+
+// setUpButton();
