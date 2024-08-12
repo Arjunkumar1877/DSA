@@ -77,42 +77,42 @@ class LinkedList {
     return;
   }
 
-  reverse(){
-    let nextNode = null;
-    let prev = null;
-    let current = this.head;
-
-    while(current !== null){
-      nextNode = current.next;
-      current.next = prev;
-      prev = current;
-      current = nextNode;
-    }
-
-    this.head = prev;
+ reverse(){
+  let current  = this.head;
+  let prev = null;
+  
+  while(current !== null){
+    let nextNode = current.next;
+    current.next = prev;
+    prev = current;
+    current = nextNode;
   }
+  this.head  = prev
+ }
 
-  recursiveReverse(){
-    if(!this.head || !this.head.next){
-      return this.head;
-    }
-
-    const reverse = (node)=>{
-         if(!node.next){
-          this.head = node;
-          return node;
-         }
-
-         const newNode = reverse(node.next);
-         node.next.next = node;
-         node.next = null
-
-         return newNode;
-    }
-    reverse(this.head);
+ recursiveReverse(){
+  if(!this.head || !this.head.next){
     return this.head;
   }
 
+  const reverse = (node)=>{
+    if(!node.next){
+      this.head = node;
+      return node;
+    }
+
+    const newNode = reverse(node.next);
+    node.next.next = node;
+    node.next = null;
+
+    return newNode
+  }
+
+  reverse(this.head);
+  return this.head
+
+
+ }
 
   addIndexAt(index, data){
     let current = this.head;
@@ -126,8 +126,8 @@ class LinkedList {
     
   }
 
-
   findMiddle(){
+
     let slow = this.head;
     let fast = this.head;
 
@@ -140,7 +140,6 @@ class LinkedList {
 
   }
 
-
   findSecondLastElement(){
     let current = this.head;
     while(current.next.next !== null){
@@ -149,7 +148,6 @@ class LinkedList {
 
     return console.log(current.data);
   }
-
 
   print() {
     let current = this.head;
@@ -161,12 +159,12 @@ class LinkedList {
   }
 }
 
-// const LL = new LinkedList();
+const LL = new LinkedList();
 
-// LL.addAtStart(100);
-// LL.addAtStart(200);
-// LL.addAtStart(300);
-// LL.addAtStart(400);
+LL.addAtStart(100);
+LL.addAtStart(200);
+LL.addAtStart(300);
+LL.addAtStart(400);
 // LL.addAtStart(500);
 // LL.addAtStart(600);
 // LL.addAtEnd(400);
@@ -177,8 +175,8 @@ class LinkedList {
 // LL.removeAtIndex(0);
 // LL.reverse();
 // LL.addIndexAt(3, 50000)
-// LL.recursiveReverse()
-// LL.print();
+LL.recursiveReverse()
+LL.print();
 // LL.findMiddle();
 // LL.findSecondLastElement()
 // console.log(LL);

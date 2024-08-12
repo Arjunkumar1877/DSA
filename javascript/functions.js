@@ -225,6 +225,22 @@ const AddAndMultiply = compose(addF, multipleF);
 
 
 
+// Currying function
+function curriedFunction(a){
+    return function(b){
+        return function(c){
+            return a + b + c;
+        }
+    }
+}
+
+// console.log(curriedFunction(1)(2)(3));
+
+const curriedArrowFunction = a => b => c => a + b + c;
+// console.log(curriedArrowFunction(1)(2)(3))
+
+
+
 
 
 
@@ -301,3 +317,35 @@ function setUpButton(){
 }
 
 // setUpButton();
+
+
+
+
+
+
+
+
+
+
+
+
+function withLogging(fn) {
+    return function (...args) {
+      console.log(`Calling ${fn.name} with arguments:`, args);
+      const result = fn(...args);
+      console.log(`Result:`, result);
+      return result;
+    };
+  }
+  
+  function add5(x, y) {
+    return x + y;
+  }
+  
+//   const loggedAdd = withLogging(add5);
+//   console.log(loggedAdd(3, 4)); // gives 7
+  
+
+
+
+

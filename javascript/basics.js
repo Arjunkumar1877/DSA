@@ -705,14 +705,79 @@ function sum(...args){
 // document.body.appendChild(newElement);
 
 
-navigator.
+// navigator.
 
 
-navigator.geolocation.getCurrentPosition((position)=>{
-    console.log(position)
-})
+// navigator.geolocation.getCurrentPosition((position)=>{
+//     console.log(position)
+// })
 //    console.log(loc)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Escape sequences
+
+
+// \n: Represents a newline character.
+// \t: Represents a tab character.
+// \': Represents a single quote character (').
+// \": Represents a double quote character (").
+// \\: Represents a backslash character (\).
+// \b: Represents a backspace character.
+// \r: Represents a carriage return character.
+// \f: Represents a form feed character.
+// \uXXXX: Represents a Unicode character with the hexadecimal code XXXX.
+
+console.log("Hello \n World");
+console.log("Hello \t World");
+
+console.log('She said, "hello"');
+console.log("He's happy");
+
+console.log("Path: C:\\Users\\Username");
+console.log("\u03A9")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const obj = { name: "John", age: 30 };
+const jsonStr = JSON.stringify(obj);
+console.log(jsonStr); 
+
+
+
+const obj1 = JSON.parse(jsonStr);
+console.log(obj1); 
+
+
+const clonedObj = JSON.parse(JSON.stringify(obj1));
+console.log(clonedObj);
 
