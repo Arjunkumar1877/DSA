@@ -149,6 +149,8 @@ class LinkedList {
     return console.log(current.data);
   }
 
+  
+
   print() {
     let current = this.head;
 

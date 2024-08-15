@@ -781,3 +781,12 @@ console.log(obj1);
 const clonedObj = JSON.parse(JSON.stringify(obj1));
 console.log(clonedObj);
 
+let nestedArray = [1, 2, 3, [4, 5, [6, 7, [8]], 9]];
+
+while (nestedArray.some((num) => Array.isArray(num))) {
+    nestedArray = nestedArray.reduce((acumulator, number) => {
+        return acumulator.concat(number);
+    }, []);
+}
+
+console.log(nestedArray);
