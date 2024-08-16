@@ -7,3 +7,5 @@ const code = 'console.log("Hai iam a string to code  execution")';
 
 
 eval(code)
+
+const data = eval("stringgg");

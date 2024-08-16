@@ -12,6 +12,7 @@ const person2 = new Person("Arjun kumar vs", 24);
 person1.greet();
 person2.greet();
 
+console.log(person1)
 
 
 
@@ -59,6 +60,8 @@ function sanitize(input){
 
 const obj = {
     __proto__: "attack",
+    constructor: "haii",
+    age: "ghjhg",
     name: "Arjun"
 }
 

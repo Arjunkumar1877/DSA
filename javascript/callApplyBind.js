@@ -33,6 +33,91 @@ const myDog = new Dog("Buddy", 3, "ekm", "Golden Retriver");
 
 
 
+// const person1 = {
+//   name: 'Alice',
+
+// };
+
+//  function greet(age) {
+//   console.log(`Hello, my name is ${this.name} and I am ${age} years old.`);
+// }
+// const person2 = {
+//   name: 'Bob'
+// };
+
+// const person3 = {
+//   name:"hy"
+// }
+
+
+// greet.callperson2, 23)
+
+
+
+
+
+
+// const person1 = {
+//   name: 'Alice',
+//   greet: function(age, city) {
+//       console.log(`Hello, my name is ${this.name}, I am ${age} years old and I live in ${city}.`);
+//   }
+// };
+
+// const person2 = {
+//   name: 'Bob'
+// };
+
+
+// person1.greet.apply(person2, [30, 'New York']); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+const person1 = {
+    name: 'Alice',
+    greet: function(age) {
+      console.log(`Hello, my name is ${this.name} and I am ${age} years old.`);
+    }
+  };
+  
+  const person2 = {
+    name: 'Bob'
+  };
+  
+  const person3 = {
+    name: "arjun"
+  }
+  
+  
+  const greetBob = person1.greet.bind(person2);
+  
+  
+  
+  
+  person1.greet.call(person3, 34)
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
 
 
 
