@@ -442,8 +442,10 @@ arr27.sort();
 
 // splice();
 const arr28 = [1, 2, 3, 4, 5, 6];
-const removed28 = arr28.splice(1, 2);
-// console.log(removed28);
+const removed28 = arr28.splice(0, 2);
+const removed28s = arr28.slice(0, 2);
+console.log(removed28);
+// console.log(removed28s);
 // console.log(arr28);
 
 

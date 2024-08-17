@@ -126,87 +126,176 @@
 
 
 
-// handle collision
+// // handle collision
+
+// class HashTable{
+//   constructor(size){
+//    this.table = new Array(size);
+//    this.size = size;
+//   }
+
+//   hash(key){
+//     let total = 0;
+//     for(let i = 0; i < key.length; i++){
+//       total += key.charCodeAt(i);
+//     }
+
+//     return total % this.size;
+//   }
+
+//   set(key, value){
+//     const index = this.hash(key);
+//     const bucket = this.table[index];
+
+//     if(!bucket){
+//       this.table[index] = [[key, value]];
+//     }else{
+//       const sameKEyItem = bucket.find(item => item[0] === key);
+//        if(sameKEyItem){
+//         sameKEyItem[1] = value;
+//        }else{
+//         bucket.push([key, value]);
+//        }
+//     }
+//   }
+
+
+//   get(key){
+//     const index = this.hash(key);
+//     const bucket  = this.table[index];
+//     if(bucket){
+//       const sameKeyItem = bucket.find(item => item[0] === key);
+//       if(sameKeyItem){
+//         return sameKeyItem[1]
+//       }
+//     }
+
+//     return undefined;
+//   }
+
+//   remove(key){
+//     const index = this.hash(key);
+//     const bucket = this.table[index];
+
+//     if(bucket){
+//       const sameKeyItem = bucket.find(item => item[0] ===  key);
+//       if(sameKeyItem){
+//         bucket.splice(bucket.indexOf(sameKeyItem), 1);
+//       }
+//     }
+//   }
+
+//   display(){
+//     for(let i = 0; i < this.table.length; i++){
+//       if(this.table[i]){
+//         console.log(i, this.table[i]);
+//       }
+//     }
+//   }
+
+
+
+// }
+
+
+// const HT = new HashTable(50);
+// HT.set("name",100)
+// HT.set("age", 200)
+// HT.set("a",300)
+// HT.set("b", 400)
+// HT.set("c", "500");
+
+// HT.remove("a")
+
+// HT.display();
+
+// // console.log(HT.get("a"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class HashTable{
   constructor(size){
-   this.table = new Array(size);
-   this.size = size;
+    this.items = new Array(size);
+    this.size = size;
   }
+
 
   hash(key){
     let total = 0;
     for(let i = 0; i < key.length; i++){
+      // console.log(key.charCodeAt(i))
       total += key.charCodeAt(i);
     }
-
+// console.log(total)
     return total % this.size;
   }
-
+  
   set(key, value){
     const index = this.hash(key);
-    const bucket = this.table[index];
+    const bucket =  this.items[index];
 
     if(!bucket){
-      this.table[index] = [[key, value]];
+      this.items[index] = [[key, value]];
     }else{
-      const sameKEyItem = bucket.find(item => item[0] === key);
-       if(sameKEyItem){
-        sameKEyItem[1] = value;
-       }else{
+      let samekeyItem = bucket.find((item) => item[0] === key);
+
+      if(samekeyItem){
+        samekeyItem[1] = value;
+      }else{
         bucket.push([key, value]);
-       }
+      }
     }
   }
-
 
   get(key){
     const index = this.hash(key);
-    const bucket  = this.table[index];
-    if(bucket){
-      const sameKeyItem = bucket.find(item => item[0] === key);
-      if(sameKeyItem){
-        return sameKeyItem[1]
-      }
-    }
+    const bucket = this.items[index];
 
-    return undefined;
+    if(bucket){
+      let samekeyItem = bucket.find(item => item[0] === key);
+
+      return samekeyItem
+    }
   }
 
   remove(key){
     const index = this.hash(key);
-    const bucket = this.table[index];
-
+    const bucket = this.items[index];
+    
     if(bucket){
-      const sameKeyItem = bucket.find(item => item[0] ===  key);
-      if(sameKeyItem){
-        bucket.splice(bucket.indexOf(sameKeyItem), 1);
+      let samekey = bucket.find(item => item[0] === key);
+      if(samekey){
+        bucket.splice(bucket.indexOf(samekey), 1);
       }
     }
   }
-
-  display(){
-    for(let i = 0; i < this.table.length; i++){
-      if(this.table[i]){
-        console.log(i, this.table[i]);
-      }
-    }
-  }
-
-
 
 }
 
 
-const HT = new HashTable(50);
-HT.set("name",100)
-HT.set("age", 200)
-HT.set("a",300)
-HT.set("b", 400)
-HT.set("c", "500");
+const HT = new HashTable(10);
 
-HT.remove("a")
+HT.set("Arjun", 45);
+HT.set("An", 45);
 
-HT.display();
+console.log(HT);
 
-// console.log(HT.get("a"));
+HT.remove('Arjun')
+HT.remove('An')
+
+console.log(HT.get('Arjun'));
+console.log(HT.get('An'));
