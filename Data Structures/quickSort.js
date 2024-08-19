@@ -11,7 +11,7 @@ let arr = [5, 7, 8, 0, 1, 3, 4, 0,9]
 //     let pivot = arr[0];
 
 //     for(let i = 1; i < arr.length; i++){
-//         if(arr[i] < pivot){
+//         if(arr[i] > pivot){
 //             left.push(arr[i]);
 //         }else{
 //             right.push(arr[i]);
@@ -22,36 +22,32 @@ let arr = [5, 7, 8, 0, 1, 3, 4, 0,9]
 // }
 
 
-
-
+// console.log(QuickSort(arr))
 
 function Sort(arr, lb, ub){
-    let i = lb;
-    let j = ub;
-    let pivot = arr[lb];
+   let i = lb;
+   let j = ub;
+   let pivot = arr[lb];
 
-    while(i <= j){
-
-        while(i <= j && arr[i] <= pivot){
-            i++;
-        }
-
-        while(i <= j&& arr[j] > pivot){
-            j--;
-        }
-
-        if(i < j){
-            let temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-        }    
+   while(i <= j){
+     
+    while(i <= j && pivot >= arr[i]){
+        i++;
     }
 
-    let temp = arr[lb];
-    arr[lb] = arr[j];
-    arr[j] = temp;
+    while(i <= j && pivot < arr[j]){
+        j--;
+    }
 
-    return j;
+    if(i < j){
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+   }
+
+   [arr[lb], arr[j]] = [arr[j], arr[lb]];
+
+   return j;
+
 }
 
 
