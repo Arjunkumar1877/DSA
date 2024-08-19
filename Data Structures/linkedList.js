@@ -185,9 +185,6 @@
 
 
 
-
-
-
 class Node{
   constructor(data){
     this.data = data;
@@ -195,69 +192,94 @@ class Node{
   }
 }
 
-
 class LinkedList{
   constructor(){
     this.head = null;
   }
 
-  AddAtStart(data){
-    const newNode = new Node(data);
-    newNode.next = this.head;
-    this.head = newNode;
+  addAtStart(data){
+    let newData = new Node(data);
+
+    if(this.head === null){
+      this.head = newData
+    }else{
+      newData.next = this.head;
+      this.head = newData
+    }
   }
 
-  AddEndStart(data){
-    const newData = new Node(data);
+  addAtEnd(data){
     let current = this.head;
-    
-    while(current.next !== null){
-      current = current.next;
+    const newData = new Node(data);
+    if(this.head === null){
+      this.head = newData;
+    }else{
+      while(current.next !== null){
+        current = current.next;
+      }
+      newData.next = current.next;
+      current.next = newData;
     }
-    current.next = newData;   
-
   }
 
   removeAtStart(){
-    let current = this.head;
-    this.head = null;
-    this.head =  current.next;
+   let current = this.head;
+   this.head = this.head.next;
   }
 
   removeAtEnd(){
     let current = this.head;
-
     while(current.next.next !== null){
       current = current.next;
     }
-    current.next = null;
+    current.next = null;;
   }
 
-  removeElement(data){
-    let current = this.head;
-    while(current.next.data !== data){
-      current = current.next;
+  removeNode(data){
+    if(this.head.data === data){
+       this.head = this.head.next;
+    }else{
+      let current = this.head;
+
+      while(current.next.data !== data){
+        current = current.next
+      }
+
+      let removedNode = current.next;
+      current.next = removedNode.next;
     }
-
-    let removedElement = current.next;
-    current.next = removedElement.next;    
   }
 
-  removeElemtAt(index){
-   let current = this.head;
+  removeAtindex(index){
+    if(index === 0){
+      this.head = this.head.next;
+    }else{
+      let current = this.head;
 
-   if(index === 0){
-    this.head = this.head.next;
-   }else{
+      for(let i = 1; i < index; i++){
+        current = current.next;
+      }
+      let removed = current.next;
+      current.next = removed.next;
+    }
+  }
     
-   for(let i = 1; i < index; i++){
-    current = current.next;
-   }
+  insertNodAtIndex(index, data){
+    const newNode = new Node(data);
+    if(index === 0){
+       newNode.next = this.head;
+       this.head = newNode;
+    }else{
+      let current = this.head;
+       for(let i = 1; i < index;  i++){
+        current = current.next;
+       }
 
-  let removedElement = current.next;
-  current.next = removedElement.next;
-   }
+       newNode.next = current.next;
+       current.next = newNode;
 
+
+    }
   }
 
   reverse(){
@@ -271,106 +293,54 @@ class LinkedList{
       current = nextNode;
     }
 
-    this.head = prev;
+    this.head = prev
   }
 
-  // reverseRecursive(){
-  //   if(!this.head || !this.head.next){
-  //     return this.head;
-  //   }
-
-  //   const reverse = (node)=>{
-  //     if(!node.next){
-  //       this.head = node;
-  //       return node;
-  //     }
-
-  //     let newNode = reverse(node.next);
-  //     node.next.next = node;
-  //     node.next = null;
-      
-  //     return newNode;
-  //   }
-
-  //   reverse(this.head);
-  //   return this.head;
-  // }
-
-  reverseRecursive(){
+  recursiveReverse(){
     if(!this.head || !this.head.next){
       return this.head;
     }
 
+
     const reverse = (node)=>{
       if(!node.next){
-        this.head = node;
+        node = this.head;
         return node;
       }
 
-      const newNode = reverse(node.next);
-      node.next.next = node;
-      node.next = null;
-
-      return newNode;
-    }
-    reverse(this.head);
-    return this.head;
-  }
-
-
-
-  findMiddle(){
-    let fast = this.head;
-    let slow = this.head;
-
-    while(fast !== null && fast.next !== null){
-     slow = slow.next;
-     fast = fast.next.next;
+      const nextNode = reverse(node.next);
+      node.next.next = node
     }
 
-    return console.log(slow.data);
 
-  }
-
-  findSecondLargest(){
-    let current = this.head;
-
-    while(current.next.next !== null){
-      current = current.next;
-    }
-
-    return console.log(current.data)
   }
 
   print(){
     let current = this.head;
+
     while(current !== null){
       console.log(current.data);
-      current = current.next;
+      current = current.next
     }
   }
 
-}
+};
 
 
 const LL = new LinkedList();
+// LL.addAtStart(100);
+// LL.addAtStart(500);
+// LL.addAtStart(800);
+LL.addAtEnd(100);
+LL.addAtEnd(200);
+LL.addAtEnd(300);
+LL.addAtEnd(400);
+// LL.removeAtStart()
+// LL.removeAtEnd()
+// LL.removeNode(100)
+// LL.removeAtindex(2)
+// LL.insertNodAtIndex(2, 2890)
+LL.reverse()
+LL.print()
+// console.log(LL)
 
-LL.AddAtStart(100);
-LL.AddAtStart(200);
-LL.AddAtStart(300);
-LL.AddAtStart(400);
-LL.AddAtStart(500);
-// LL.AddEndStart(600);
-// LL.AddEndStart(700);
-// LL.removeAtStart();
-// LL.removeAtEnd();
-// LL.removeElement(100);
-// LL.removeElemtAt(2)
-// LL.reverse();
-LL.reverseRecursive();
-LL.findMiddle()
-console.log("object")
-LL.print();
-console.log("object")
-
-LL.findSecondLargest()

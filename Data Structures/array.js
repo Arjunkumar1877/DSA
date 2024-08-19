@@ -921,5 +921,52 @@ function Search(arr, target, left , right){
 }
 
 
-console.log(binarySearch([1,2,3,4,5], 5));
+// console.log(binarySearch([1,2,3,4,5], 5));
 
+
+
+
+// Creating an ArrayBuffer of 16 bytes (128 bits)
+let buffer = new ArrayBuffer(128);
+
+// Creating a view of the buffer as an Int32Array (4 bytes per element)
+let int32View = new Int32Array(buffer);
+
+// Writing data to the buffer
+int32View[0] = 42;
+int32View[1] = 123456789;
+int32View[2] = -42;
+int32View[3] = 0xdeadbeef; // Hexadecimal representation
+int32View[4] = 0xdeadbeef; // Hexadecimal representation
+int32View[5] = 0xdeadbeef; // Hexadecimal representation
+int32View[6] = 0xdeadbeef; // Hexadecimal representation
+int32View[7] = 0xdeadbeef; // Hexadecimal representation
+int32View[8] = 0xdeadbeef; // Hexadecimal representation
+int32View[9] = 0xdeadbeef; // Hexadecimal representation
+int32View[10] = 0xdeadbeef; // Hexadecimal representation
+int32View[11] = 0xdeadbeef; // Hexadecimal representation
+int32View[12] = 0xdeadbeef; // Hexadecimal representation
+int32View[13] = 0xdeadbeef; // Hexadecimal representation
+int32View[14] = 0xdeadbeef; // Hexadecimal representation
+int32View[15] = 0xdeadbeef; // Hexadecimal representation
+int32View[16] = 0xdeadbeef; // Hexadecimal representation
+
+console.log(int32View);
+// Outputs: Int32Array(4) [ 42, 123456789, -42, -559038737 ]
+
+let sparseArray = [];
+sparseArray[3] = 'apple';
+sparseArray[7] = 'banana';
+
+console.log(sparseArray); // [ <3 empty items>, 'apple', <3 empty items>, 'banana' ]
+console.log(sparseArray.length); // 8
+for (let i = 0; i < sparseArray.length; i++) {
+   
+      console.log(i, sparseArray[i]);
+   
+  }
+  
+  // Output:
+  // 3 'apple'
+  // 7 'banana'
+  
