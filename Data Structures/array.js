@@ -820,5 +820,106 @@ function missingNumber(arr){
 
 
 
+const obj = {
+    a: 5,
+    b: {
+        c: 6,
+        d: 9
+    },
+    u: 90,
+    f: {
+        h: 7,
+        k: {
+            l: 77
+        }
+    }
+}
 
+
+
+function recurse(obj){
+    let sum = 0;
+   for(const key in obj){
+    if(typeof obj[key] === 'object'){
+        sum += recurse(obj[key]);
+    }else if(typeof obj[key] === 'number'){
+        sum += obj[key]
+    }
+   }
+
+   return sum;
+
+}
+
+
+// console.log(recurse(obj));
+
+
+const str = "wjhdsfagsdhyuetwrweasbcasldweirwebcaksdckjuuuuuuuuaaaaaaaabsdcbaskjnsdoooooooougfajsdbcabjbisdhfiushiushd"
+function findVowels(str){
+    const newObj = {
+        a: 0,
+        e: 0,
+        i: 0,
+        o: 0,
+        u: 0
+    };
+    for(let value of str){
+        if(newObj[value] === 0){
+            newObj[value] = 1;
+        }else if(newObj[value]){
+            newObj[value]++;
+        }
+    }
+
+    return newObj;
+}
+
+
+// console.log(findVowels(str))
+
+
+
+
+
+const nums = [1,2,3,34,54,54,36,,54,654, () => console.log("hoi") , null  ,undefined , {} ,[] ,"oi"];
+
+
+function reduceSum(arr){
+    const num = arr.reduce((acc, curr)=> acc + (typeof curr === 'number' ? curr : 0), 0);
+
+    return num;
+}
+
+// console.log(reduceSum(nums));
+
+
+
+
+
+
+function binarySearch(arr, target){
+    return Search(arr, target, 0, arr.length-1);
+}
+
+
+function Search(arr, target, left , right){
+    if(left > right){
+        return "Not available"
+    }
+
+    const middleElem = Math.floor((left + right)/2);
+    if(arr[middleElem] === target){
+        return middleElem+1;
+    }
+
+    if(target < arr[middleElem]){
+        return Search(arr,target, left, middleElem-1);
+    }else{
+        return Search(arr, target, middleElem+1, right);
+    }
+}
+
+
+console.log(binarySearch([1,2,3,4,5], 5));
 
