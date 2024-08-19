@@ -222,80 +222,9 @@
 
 
 
-
-
-
-
-
-class HashTable{
+class HashMap{
   constructor(size){
-    this.items = new Array(size);
+    this.table = new Array(size);
     this.size = size;
   }
-
-
-  hash(key){
-    let total = 0;
-    for(let i = 0; i < key.length; i++){
-      // console.log(key.charCodeAt(i))
-      total += key.charCodeAt(i);
-    }
-// console.log(total)
-    return total % this.size;
-  }
-  
-  set(key, value){
-    const index = this.hash(key);
-    const bucket =  this.items[index];
-
-    if(!bucket){
-      this.items[index] = [[key, value]];
-    }else{
-      let samekeyItem = bucket.find((item) => item[0] === key);
-
-      if(samekeyItem){
-        samekeyItem[1] = value;
-      }else{
-        bucket.push([key, value]);
-      }
-    }
-  }
-
-  get(key){
-    const index = this.hash(key);
-    const bucket = this.items[index];
-
-    if(bucket){
-      let samekeyItem = bucket.find(item => item[0] === key);
-
-      return samekeyItem
-    }
-  }
-
-  remove(key){
-    const index = this.hash(key);
-    const bucket = this.items[index];
-    
-    if(bucket){
-      let samekey = bucket.find(item => item[0] === key);
-      if(samekey){
-        bucket.splice(bucket.indexOf(samekey), 1);
-      }
-    }
-  }
-
 }
-
-
-const HT = new HashTable(10);
-
-HT.set("Arjun", 45);
-HT.set("An", 45);
-
-console.log(HT);
-
-HT.remove('Arjun')
-HT.remove('An')
-
-console.log(HT.get('Arjun'));
-console.log(HT.get('An'));
