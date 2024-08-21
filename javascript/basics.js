@@ -747,7 +747,6 @@ function sum(...args){
 // navigator.geolocation.getCurrentPosition((position)=>{
 //     console.log(position)
 // })
-//    console.log(loc)
 
 
 
@@ -896,3 +895,4 @@ weakSet.add(obj2);
 console.log(weakSet.has(obj1)); // true
 console.log(weakSet); // true
 
+console.log(typeof undefined)

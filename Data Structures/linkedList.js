@@ -282,9 +282,10 @@ class LinkedList{
     }
   }
 
+
   reverse(){
-    let prev = null;
     let current = this.head;
+    let prev = null;
 
     while(current !== null){
       let nextNode = current.next;
@@ -296,24 +297,26 @@ class LinkedList{
     this.head = prev
   }
 
-  recursiveReverse(){
-    if(!this.head || !this.head.next){
-      return this.head;
-    }
-
-
-    const reverse = (node)=>{
-      if(!node.next){
-        node = this.head;
-        return node;
-      }
-
-      const nextNode = reverse(node.next);
-      node.next.next = node
-    }
-
-
+ recursiveReverse(){
+  if(!this.head || !this.head.next){
+    return this.head;
   }
+
+  const reverse = (node)=>{
+    if(!node.next){
+      this.head = node;
+      return node;
+    }
+
+    const newNode = reverse(node.next);
+    node.next.next = node;
+    node.next = null;
+    return newNode;
+  }
+
+  reverse(this.head);
+  return this.head;
+ }
 
   print(){
     let current = this.head;
@@ -340,7 +343,8 @@ LL.addAtEnd(400);
 // LL.removeNode(100)
 // LL.removeAtindex(2)
 // LL.insertNodAtIndex(2, 2890)
-LL.reverse()
+// LL.reverse();
+LL.recursiveReverse();
 LL.print()
 // console.log(LL)
 
