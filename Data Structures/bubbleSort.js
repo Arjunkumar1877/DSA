@@ -12,18 +12,19 @@ const arr = [1,5, 7, 8,9, 3, 0, 1,7, 8];
 
 // console.log(arr);
 
-// let swapped;
-
-// do{
-//   swapped = false;
-
-//   for(let i = 0; i < arr.length; i++){
-//     if(arr[i] > arr[i+1]){
-//       [arr[i], arr[i+1]] = [arr[i+1], arr[i]];
-//         swapped = true;
-//     }
-//   }
-// }while(swapped === true);
+let swapped;
 
 
-console.log(arr);
+do{
+    swapped = false;
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] > arr[i+1]){
+            [arr[i], arr[i+1]] = [arr[i+1], arr[i]];
+            swapped = true;
+        }
+    }
+}while(swapped)
+
+
+
+// console.log(arr);

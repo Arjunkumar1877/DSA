@@ -876,7 +876,7 @@ function findVowels(str){
 }
 
 
-// console.log(findVowels(str))
+console.log(findVowels(str))
 
 
 
@@ -921,5 +921,25 @@ function Search(arr, target, left , right){
 }
 
 
-console.log(binarySearch([1,2,3,4,5], 5));
+// console.log(binarySearch([1,2,3,4,5], 5));
 
+
+
+
+
+function counter(num){
+    const interval = setInterval(()=>{
+        let time = 0;
+        num--;
+        console.log(num)
+        time++;
+        
+    },1000);
+
+    if(num === num){
+        clearInterval(interval)
+    }
+
+}
+
+counter(10);

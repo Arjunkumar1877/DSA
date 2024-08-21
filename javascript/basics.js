@@ -50,7 +50,43 @@ let colors = ["red", "green", "blue"];
 
 
 
+// Valid
+// let name = "Alice";
+// let _count = 10;
+// let $value = 5;
+// let userName123 = "John";
+// let camelCaseVar = "example";
 
+
+
+
+// let 123name = "Alice";  // Invalid: starts with a digit
+// let user-name = "Bob";  // Invalid: hyphen not allowed
+// let let = "something";  // Invalid: 'let' is a reserved keyword
+
+
+
+
+
+
+// if (!false) console.log('false is falsy');
+// if (!0) console.log('0 is falsy');
+// if (!'') console.log('Empty string is falsy');
+// if (!null) console.log('null is falsy');
+// if (!undefined) console.log('undefined is falsy');
+// if (!NaN) console.log('NaN is falsy');
+
+
+
+
+
+
+// if (true) console.log('true is truthy');
+// if (1) console.log('1 is truthy');
+// if ('hello') console.log('Non-empty string is truthy');
+// if ({}) console.log('Object is truthy');
+// if ([]) console.log('Array is truthy');
+// if (Symbol()) console.log('Symbol is truthy');
 
 
 
@@ -711,7 +747,6 @@ function sum(...args){
 // navigator.geolocation.getCurrentPosition((position)=>{
 //     console.log(position)
 // })
-//    console.log(loc)
 
 
 
@@ -790,3 +825,74 @@ while (nestedArray.some((num) => Array.isArray(num))) {
 }
 
 console.log(nestedArray);
+
+
+
+
+
+
+
+(function(a, b) {
+console.log(this)
+
+    return console.log(a + b)
+})(10, 70);
+
+// console.log(result);  // Outputs: 15
+
+
+console.log(this)
+
+
+
+const arr = [1, 2,[ 3, 4,], [5, 6,], 7];
+
+const newArray = arr.reduceRight((acc, curr)=>
+    acc.concat(curr)
+,[]);
+
+console.log(newArray)
+
+
+const compose = (...functions) => (input) =>
+    functions.reduceRight((acc, fn) => fn(acc), input);
+
+const add = (x) => x + 1;
+const multiply = (x) => x * 2;
+const square = (x) => x * x;
+
+const composedFunction = compose(square, multiply, add);
+
+console.log(composedFunction(5)); 
+
+
+
+
+
+// let user = {
+//     name: 'Alice',
+//     address: "velliii",
+//     city: {
+//         place: 'ekm'
+//     }
+// };
+
+
+// const newObj = JSON.parse(JSON.stringify(user))
+
+// newObj.city.place = "heyyyyyy"
+// console.log(user)
+
+
+// console.log(newObj)
+const weakSet = new WeakSet();
+const obj11 = {};
+const obj2 = {};
+
+weakSet.add(obj11);
+weakSet.add(obj2);
+
+console.log(weakSet.has(obj1)); // true
+console.log(weakSet); // true
+
+console.log(typeof undefined)
