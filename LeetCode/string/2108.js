@@ -17,3 +17,5 @@ let findFirstPalindrom = (words)=> {
 }
 
 console.log(findFirstPalindrom(words2));
+
+
