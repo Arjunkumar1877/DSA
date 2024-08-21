@@ -41,6 +41,9 @@ function findFirstPalindrom(words){
   return "no palindrom";
 }
 
+<<<<<<< HEAD
+console.log(findFirstPalindrom(words2));
+=======
 
 function check(word, lb= 0, ub= word.length-1){
  if(lb > ub){
@@ -58,5 +61,6 @@ function check(word, lb= 0, ub= word.length-1){
 console.log(findFirstPalindrom(words));
 
 
+>>>>>>> e04c5ebb69be92dccaff9a619d535182db881771
 
 
