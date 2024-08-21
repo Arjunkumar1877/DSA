@@ -6,14 +6,32 @@
 const words = ["abc","car","adao","racecara","cool"];
 const words2 = ["abc","car","adao","racecar","cool"];
 
-let findFirstPalindrom = (words)=> {
-      for(let i = 0; i < words.length; i++){
-        if(words[i] === words[i].split('').reverse().join('')){
-            return words[i];
-        }
-      }
 
-      return "No palindrom words";
+//Method - 1
+
+// let findFirstPalindrom = (words)=> {
+//       for(let i = 0; i < words.length; i++){
+//         if(words[i] === words[i].split('').reverse().join('')){
+//             return words[i];
+//         }
+//       }
+
+//       return "No palindrom words";
+// }
+
+// console.log(findFirstPalindrom(words2));
+
+
+
+
+
+
+// Method - 2
+function firstPalindrom(words){
+  for(let i = 0; i < words.length; i++){
+    let w 
+  }
 }
 
-console.log(findFirstPalindrom(words2));
+
+
