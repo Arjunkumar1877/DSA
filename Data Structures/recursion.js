@@ -1,4 +1,4 @@
-let str = "Arjun";
+let str = "amma";
 
 function chechkPalintrom(str, n){
     let str1 = "";
@@ -14,19 +14,16 @@ function chechkPalintrom(str, n){
 // console.log(chechkPalintrom(str, str.length-1));
 
 
-
-let  words = ["abc","car","ada","racecar","cool"];
-
-
-var firstPalindrome = function(words) {
-    for(let i = 0; i < words.length; i++){
-        console.log(words[i] , " " ,words[i].split('').reverse().join(''))
-        if(words[i] === words[i].split('').reverse().join('')){
-            
-            return words[i]
-        }
+function chechkPalintrom(words, lb = 0, ub = words.length - 1){
+    if(lb > ub){
+        return true;
     }
 
-    return "no palinrom"
-};
-console.log(firstPalindrome(words))
+    if(words[lb] !== words[ub]){
+        return false;
+    }
+
+    return chechkPalintrom(words, lb += 1, ub -= 1);
+}
+
+console.log(chechkPalintrom(str))
