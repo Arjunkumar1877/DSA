@@ -2,7 +2,7 @@
 // Note that you must do this in-place without making a copy of the array.
 
 
-const arr =  [0,1,0,3,12];
+const arr =  [0,777, 1,0,3,12, 0, 0, 77, ];
 function recursiveMoveZeroes(nums){
     function helper(index, count){
         if(index === nums.length) return;
@@ -32,5 +32,27 @@ function moveZeroes(nums){
     }
 }
 
-// moveZeroes(arr)
+// moveZeroes(arr);
+
+
+
+
+function MoveAllZero(nums){
+    let k = 0;
+  for(let i = 0; i < nums.length; i++){
+    if(nums[i] !== 0){
+        [nums[k], nums[i]] = [nums[i], nums[k]];
+        k++;
+         }
+  }
+    return console.log(nums);
+}
+
+
+MoveAllZero(arr)
+
+
+
+
+
 console.log(arr)
