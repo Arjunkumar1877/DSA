@@ -41,22 +41,6 @@ function findFirstPalindrom(words){
   return "no palindrom";
 }
 
-
-function check(word, lb= 0, ub= word.length-1){
- if(lb > ub){
-    return word;
- }
-
- if(word[lb] !== word[ub]){
-    return false;
- }else{
-    return check(word, lb += 1, ub -= 1);
- }
-}
-
-
-console.log(findFirstPalindrom(words));
-
-
+console.log(findFirstPalindrom(words2));
 
 
