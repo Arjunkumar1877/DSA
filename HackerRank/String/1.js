@@ -1,6 +1,6 @@
 //https://www.hackerrank.com/challenges/reduced-string/problem?isFullScreen=true
 
-let string = "aaabccddd";
+let string = "cbbd";
 
 function reduceString(str, i = 0) {
   if (str.length == 0) {
