@@ -60,8 +60,6 @@ class Ll {
     prev.next = curr.next;
   }
 
-
-
   findElement(element) {
     let curr = this.head;
     while (curr) {
@@ -75,7 +73,50 @@ class Ll {
     return "Not matched element";
   }
 
-  
+  findMiddleElement() {
+    let middle = this.head;
+    let curr = this.head;
+
+    while (curr && curr.next) {
+      middle = middle.next;
+      curr = curr.next?.next;
+    }
+    return middle.data;
+  }
+
+  removeD() {
+    let curr = this.head;
+    let seen = new Set();
+    let prev = null;
+    while (curr) {
+      if (seen.has(curr.data)) {
+        prev.next = curr.next;
+      } else {
+        seen.add(curr.data);
+        prev = curr;
+      }
+
+      curr = curr.next;
+    }
+  }
+  findKthToLast(k) {
+    let slow = this.head;
+    let fast = this.head;
+
+    for (let i = 0; i < k; i++) {
+      if (fast === null) return null;
+      fast = fast.next;
+    }
+
+    while (fast !== null) {
+      slow = slow.next;
+      fast = fast.next;
+    }
+
+    return slow;
+  }
+
+
 }
 
 const ll = new Ll();
@@ -83,6 +124,12 @@ console.log(ll.ifEmpty());
 ll.addAtS(10);
 ll.addAtS(20);
 ll.addAtS(30);
-ll.addAtE(40);
-ll.deleteNodeWithValue(40);
+ll.addAtS(40);
 ll.print();
+
+console.log(ll.findKthToLast(4));
+
+
+
+
+

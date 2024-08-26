@@ -22,7 +22,7 @@ function reverseWord(w) {
   return rev;
 }
 
-console.log(reverString("hello world"));
+console.log(reverString("hello world")); 
 // function reverseStringUsingRecursion(str) {
 //   if (str === "") {
 //     return "";

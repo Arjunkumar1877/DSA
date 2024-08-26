@@ -8,20 +8,18 @@
 //   if(arr[minindex] > arr[j]){
 //   minindex = j
 //   }
-  
+
 //  }
 //  if(minindex !==i){
 //   [arr[i] ,arr[minindex]] = [arr[minindex] , arr[i]]
 //  }
 
- 
 // }
 // console.log(arr);
 
-
 // function selectionSort(arr){
 //      let min;
-  
+
 //      for(let i = 0; i < arr.length; i++){
 //       min = i;
 //       for(let j = 0; j < arr.length; j++){
@@ -35,29 +33,25 @@
 //           }
 //       }
 //      }
-  
+
 //       return console.log(arr);
 //   }
-  
-  
-//   selectionSort(arr);
-  
 
-let min;
+//   selectionSort(arr);
 
 let arr = [2, 6, 1, 56, 7, 8, 9, 21, 1];
 
-for(let i = 0; i < arr.length; i++){
-    min = i;
-   for(let j = 0; j < arr.length; j++){
-    if(arr[j] > arr[min]){
-        min = j;
+for (let i = 0; i < arr.length; i++) {
+  let min = i;
+  for (let j = 0; j < arr.length; j++) {
+    if (arr[j] > arr[min]) {
+      min = j;
     }
 
-    if(min !== i){
-    [arr[min], arr[i]] = [arr[i], arr[min]];
+    if (min !== i) {
+      [arr[min], arr[i]] = [arr[i], arr[min]];
     }
-   }
+  }
 }
 
-console.log(arr)
+console.log(arr);
