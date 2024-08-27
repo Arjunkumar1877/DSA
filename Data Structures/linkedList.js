@@ -187,10 +187,11 @@
 
 class Node{
   constructor(data){
-    this.data = data;
-    this.next = null;
+   this.data = data;
+   this.next = null;
   }
 }
+
 
 class LinkedList{
   constructor(){
@@ -198,90 +199,110 @@ class LinkedList{
   }
 
   addAtStart(data){
-    let newData = new Node(data);
+   let newNode = new Node(data);
 
-    if(this.head === null){
-      this.head = newData
-    }else{
-      newData.next = this.head;
-      this.head = newData
-    }
+   newNode.next = this.head;
+   this.head = newNode;
   }
 
   addAtEnd(data){
     let current = this.head;
-    const newData = new Node(data);
+    const newNode = new Node(data);
     if(this.head === null){
-      this.head = newData;
+      this.head = newNode;
     }else{
       while(current.next !== null){
         current = current.next;
       }
-      newData.next = current.next;
-      current.next = newData;
+      newNode.next = current.next;
+      current.next = newNode
     }
   }
 
-  removeAtStart(){
-   let current = this.head;
-   this.head = this.head.next;
+  removeFromStart(){
+    this.head = this.head.next;
   }
 
-  removeAtEnd(){
+  removeFromEnd(){
     let current = this.head;
     while(current.next.next !== null){
       current = current.next;
     }
-    current.next = null;;
+    current.next = null
   }
 
-  removeNode(data){
-    if(this.head.data === data){
-       this.head = this.head.next;
-    }else{
-      let current = this.head;
+  removeNode(node){
+    let current = this.head;
 
-      while(current.next.data !== data){
-        current = current.next
+    if(current.data === node){
+      this.head = this.head.next;
+    }else{
+      while(current.next.data !== node){
+        current = current.next;
       }
 
+      let removedData = current.next;
+       current.next = removedData.next;
+
+    }
+  }
+
+  removeNodeAt(index){
+    let current = this.head;
+    if(index === 0){
+      this.head = this.head.next;
+    }else{
+      for(let i = 1; i < index; i++){
+        current = current.next;
+      }
+    
       let removedNode = current.next;
       current.next = removedNode.next;
     }
   }
 
-  removeAtindex(index){
+  addAtIndex(index, data){
+    let newNode = new Node(data);
+
     if(index === 0){
-      this.head = this.head.next;
+      newNode.next  = this.head;
+      this.head = newNode;
     }else{
       let current = this.head;
-
       for(let i = 1; i < index; i++){
         current = current.next;
       }
-      let removed = current.next;
-      current.next = removed.next;
+      newNode.next = current.next;
+      current.next = newNode;
     }
-  }
-    
-  insertNodAtIndex(index, data){
-    const newNode = new Node(data);
-    if(index === 0){
-       newNode.next = this.head;
-       this.head = newNode;
-    }else{
-      let current = this.head;
-       for(let i = 1; i < index;  i++){
-        current = current.next;
-       }
 
-       newNode.next = current.next;
-       current.next = newNode;
-
-
-    }
   }
 
+  findMiddleNode(){
+    let slow = this.head;
+    let fast = this.head;
+
+    while(fast.next !== null && fast.next.next !==  null){
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+
+    console.log(slow.data)
+
+  }
+
+  findSecondLastNode(){
+    if(this.head === null){
+      return;
+    }
+
+    let current = this.head;
+    while(current.next.next !== null){
+       current = current.next;
+    }
+
+    console.log(current.data)
+  }
 
   reverse(){
     let current = this.head;
@@ -293,58 +314,58 @@ class LinkedList{
       prev = current;
       current = nextNode;
     }
-
-    this.head = prev
+    this.head = prev;
   }
 
- recursiveReverse(){
-  if(!this.head || !this.head.next){
-    return this.head;
-  }
-
-  const reverse = (node)=>{
-    if(!node.next){
-      this.head = node;
-      return node;
+  recursiveReverse(){
+    if(!this.head || !this.head.next){
+      return this.head;
     }
 
-    const newNode = reverse(node.next);
-    node.next.next = node;
-    node.next = null;
-    return newNode;
-  }
+    const reverse = (node) => {
+      if(!node.next){
+        this.head = node;
+        return node;
+      }
 
-  reverse(this.head);
-  return this.head;
- }
+      const newNode = reverse(node.next);
+      node.next.next = node;
+      node.next = null;
+
+      return newNode;
+    }
+
+    reverse(this.head);
+    // return this.head;
+  }
 
   print(){
     let current = this.head;
 
     while(current !== null){
       console.log(current.data);
-      current = current.next
+      current = current.next;
     }
   }
 
-};
+}
 
 
 const LL = new LinkedList();
-// LL.addAtStart(100);
-// LL.addAtStart(500);
-// LL.addAtStart(800);
 LL.addAtEnd(100);
 LL.addAtEnd(200);
 LL.addAtEnd(300);
 LL.addAtEnd(400);
-// LL.removeAtStart()
-// LL.removeAtEnd()
-// LL.removeNode(100)
-// LL.removeAtindex(2)
-// LL.insertNodAtIndex(2, 2890)
-// LL.reverse();
-LL.recursiveReverse();
-LL.print()
-// console.log(LL)
-
+LL.addAtEnd(500);
+// LL.addAtEnd(600);
+// LL.removeFromStart();
+// LL.removeFromEnd();
+// LL.removeNode(400);
+// LL.removeNodeAt(2)
+// LL.addAtIndex(3, 56666);
+// LL.findMiddleNode()
+// LL.findSecondLastNode()
+// LL.reverse()
+LL.recursiveReverse()
+console.log('\n')
+LL.print();

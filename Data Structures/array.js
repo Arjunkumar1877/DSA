@@ -15,30 +15,37 @@
 // console.log(summation(10))
 
 
+// console.log(10 * (10 + 1)/2)
+// console.log(1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10)
 
 
 // Fibonnacci sequence
 // O(n)
 // function fibonnacci(n){
-//     let result = [0, 1];
+//     let arr = [0, 1];
 
 //     for(let i = 2; i <= n; i++){
-//        result[i] = result[i-1] + result[i-2];
+//         arr[i] = arr[i-1] + arr[i-2]
 //     }
-
-//     return result
+//     return arr;
 // }
 
 // Recursion
-function fibonnacci(n){
-    if(n < 2){
-        return n;
-    }
+// function fibonnacci(n){
+//     if(n < 2){
+//         return n;
+//     }
 
-    // console.log(n)
+//     return fibonnacci(n - 1) + fibonnacci(n - 2)
+// }
 
-    return fibonnacci(n-1) + fibonnacci(n-2)
-}
+// function fibonnacci(n){
+//     if(n < 2){
+//         return n;
+//     }
+
+//     return fibonnacci(n-1) + fibonnacci(n-2);
+// }
 
 // console.log(fibonnacci(4))
 
@@ -49,24 +56,25 @@ function fibonnacci(n){
 
 // Factorial 
 // O(n)
-function factorial(n){
-    let result = 1;
 
-    for(let i = 2; i <= n; i++){
-        
-       result = result * i
+// function factorial(n){
+//     let num = 1;
+
+//     for(let i = 1; i <= n; i++){
+//         num *= i;
+//     }
+
+//     return num;
+// }
+
+// // Recursion
+function factorial(n){
+    if(n === 0){
+        return 1;
     }
 
-    return result;
+    return n * factorial(n - 1)
 }
-// // Recursion
-// // function factorial(n){
-// //     if(n === 0){
-// //         return 1; 
-// //     }
-
-// //     return n * factorial(n-1)
-// // }
 // console.log(factorial(0))
 // console.log(factorial(1))
 // console.log(factorial(5))
@@ -81,28 +89,30 @@ function factorial(n){
 // O(n)
 // function isPrime(n){
 //     if(n < 2){
-//         return false
-//     }
-//     for (let i = 2; i < n; i++) {        
-//         if(n % i === 0){
-//           return false;
-//         }
+//         return false;
 //     }
 
+//     for(let i = 2; i < n; i++){
+//         if(n % i === 0){
+//             return false;
+//         }
+//     }
 //     return true;
 // }
+
+
 // O(logn)
  function isPrime(n){
-        if(n < 2){
-            return false
-        }
-        for (let i = 2; i <= Math.sqrt(n); i++) {        
-            if(n % i === 0){
-              return false;
-            }
-        }
-    
-        return true;
+if(n < 2){
+    return false;
+}
+for(let i = 2; i < Math.sqrt(n); i++){
+    if(n % i === 0){
+        return false;
+    }
+}
+
+return true
     }
 
 // console.log(isPrime(1))
@@ -118,30 +128,30 @@ function factorial(n){
 
 // Power of 2
 // O(logn)
-// function ispowerOfTwo(n){
-//     if(n < 1){
-//         return false;
-//     }
-
-//     while(n > 1){
-//         if(n % 2 !== 0){
-//             return false
-//         }
-//         n = n/2
-//     }
-//     return true
-// }
-// O(1)
 function ispowerOfTwo(n){
-  if(n < 1){
-    return false;
-  }
+    if(n < 1){
+        return false;
+    }
 
-  return (n & (n-1)) === 0;
+    while(n > 1){
+        if(n % 2 !== 0){
+            return false
+        }
+        n = n/2
+    }
+    return true
 }
+// O(1)
+// function ispowerOfTwo(n){
+//   if(n < 1){
+//     return false;
+//   }
 
-// console.log(ispowerOfTwo(1))
-// console.log(ispowerOfTwo(2))
+//   return (n & (n-1)) === 0;
+// }
+
+// console.log(ispowerOfTwo(16))
+// console.log(ispowerOfTwo(12))
 // console.log(ispowerOfTwo(8))
 
 
@@ -467,19 +477,19 @@ function mergeSort(arr, lb, ub){
 
 // Climing starecase
 // O(n);
-// function ClimbingStarcase(n){
-//     const noOfDays = [1, 2];
-//     for(let i = 2; i <= n; i++){
-//         noOfDays[i] = noOfDays[i - 1] + noOfDays[i - 2]
-//     }
+function ClimbingStarcase(n){
+    const noOfDays = [1, 2];
+    for(let i = 2; i <= n; i++){
+        noOfDays[i] = noOfDays[i - 1] + noOfDays[i - 2]
+    }
 
-//     return noOfDays[n - 1];
-// }
-// console.log(ClimbingStarcase(1));
-// console.log(ClimbingStarcase(2));
-// console.log(ClimbingStarcase(3));
-// console.log(ClimbingStarcase(4));
-// console.log(ClimbingStarcase(5));
+    return noOfDays[n - 1];
+}
+console.log(ClimbingStarcase(1));
+console.log(ClimbingStarcase(2));
+console.log(ClimbingStarcase(3));
+console.log(ClimbingStarcase(4));
+console.log(ClimbingStarcase(5));
 
 
 
@@ -876,7 +886,7 @@ function findVowels(str){
 }
 
 
-console.log(findVowels(str))
+// console.log(findVowels(str))
 
 
 
@@ -896,50 +906,50 @@ function reduceSum(arr){
 
 
 
-
-
 function binarySearch(arr, target){
     return Search(arr, target, 0, arr.length-1);
 }
 
-
-function Search(arr, target, left , right){
+function search(arr, target, left, right){
     if(left > right){
-        return "Not available"
+        return console.log("not number available");
     }
 
-    const middleElem = Math.floor((left + right)/2);
-    if(arr[middleElem] === target){
-        return middleElem+1;
+    let middle = Math.floor((left + right)/2);
+    if(arr[middle] === target){
+        return console.log(middle);
     }
 
-    if(target < arr[middleElem]){
-        return Search(arr,target, left, middleElem-1);
+    if(arr[middle] > target){
+        return search(arr, target, left, middle-1);
     }else{
-        return Search(arr, target, middleElem+1, right);
+        return search(arr, target, middle+1, right)
     }
+
 }
 
 
-// console.log(binarySearch([1,2,3,4,5], 5));
+
+
+// console.log(binarySearch([1,2,3,4,5], 1));
 
 
 
 
 
-function counter(num){
-    const interval = setInterval(()=>{
-        let time = 0;
-        num--;
-        console.log(num)
-        time++;
+// function counter(num){
+//     const interval = setInterval(()=>{
+//         let time = 0;
+//         num--;
+//         console.log(num)
+//         time++;
         
-    },1000);
+//     },1000);
 
-    if(num === num){
-        clearInterval(interval)
-    }
+//     if(num === num){
+//         clearInterval(interval)
+//     }
 
-}
+// }
 
-counter(10);
+// counter(10);

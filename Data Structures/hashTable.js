@@ -221,10 +221,88 @@
 
 
 
-
 class HashMap{
   constructor(size){
-    this.table = new Array(size);
     this.size = size;
+    this.table = new Array(size);
   }
+
+  hash(key){
+    let total = 0;
+
+    for(let i = 0; i < key.length; i++){
+      total += key.charCodeAt(i);
+    }
+    return total % this.size;
+  }
+
+  insert(key, value){
+    let index = this.hash(key);
+    let bucket = this.table[index];
+
+    if(!bucket){
+      this.table[index] = [[key, value]];
+    }else{
+      const sameKeyIndex = bucket.find((item) => item[0] === key);
+      if(sameKeyIndex){
+        sameKeyIndex.value = value;
+      }else{
+        bucket.push([key, value]);
+      }
+    }
+
+  }
+
+
+  get(key){
+    const index = this.hash(key);
+    const bucket = this.table[index];
+
+    if(!bucket){
+      return;
+    }else{
+      let sameKeyIndex = bucket.find(item => item[0] === key);
+      if(sameKeyIndex){
+        return sameKeyIndex;
+      }
+    }
+  }
+
+  remove(key){
+    const index = this.hash(key);
+    let bucket = this.table[index];
+
+    if(bucket){
+      const sameKeyIndex = bucket.find((item)=> item[0] === key);
+      if(sameKeyIndex){
+        bucket.splice(bucket.indexOf(sameKeyIndex), 1);
+      } 
+    }
+
+  }
+
 }
+
+
+
+
+
+const HT = new HashMap(10);
+HT.insert('key', 1234);
+HT.insert('ky', 1234);
+HT.insert('keey', 1234);
+HT.insert('ky', 1234);
+HT.insert('ey', 1234);
+HT.insert('y', 1234);
+// HT.remove('y')
+HT.remove('key');
+HT.remove('ky');
+HT.remove('keey');
+HT.remove('ky');
+HT.remove('ey');
+HT.remove('y');
+// HT.remove('y')
+
+
+console.log(HT.get('y'));
+console.log(HT)
