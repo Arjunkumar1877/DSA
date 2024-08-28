@@ -166,10 +166,10 @@ BT.insert(250);
 
 BT.delete(100)
 
-console.log(BT.levelOrder()) //
+console.log(BT.levelOrder()) // 100, 
 
 // console.log(BT.minNode(BT.root));
 
 // console.log(BT.maxNode(BT.root))
-
+// console.log(BT);/
 
