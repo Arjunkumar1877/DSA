@@ -69,6 +69,11 @@ class MaxHeap{
         this.heapify(this.heap, 0, this.heap.length);
     }
 
+
+
+
+
+
 }
 const MH = new MaxHeap();
 MH.insert(100)
@@ -77,9 +82,9 @@ MH.insert(600)
 MH.insert(800)
 MH.insert(900)
 MH.insert(300)
-MH.remove()
-MH.remove()
-MH.remove()
+// MH.remove()
+// MH.remove()
+// MH.remove()
 
 // console.log(MH.minHeap(MH.heap))
 console.log(MH)

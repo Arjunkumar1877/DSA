@@ -80,10 +80,24 @@ MX.insert(600);
 MX.insert(500);
 
 MX.remove()
-MX.remove()
+// MX.remove()
 
 console.log(MX);  
 
 let arr = [1, 2, 3, 4, 5, 77, 0, 7, 3, 5];
 
 console.log(MX.heapSort(arr));  
+
+
+
+
+// class MaxHeap{
+//     constructor(){
+//         this.heap = [];
+//     }
+
+//     insert(data){
+//         let n = this.heap.length;
+
+//     }
+// }

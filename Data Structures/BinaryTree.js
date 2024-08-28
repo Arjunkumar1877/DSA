@@ -164,7 +164,7 @@ BT.insert(250);
 
 // console.log(BT.root.data);
 
-BT.delete(100)
+BT.delete(25)
 
 console.log(BT.levelOrder()) // 100, 
 
