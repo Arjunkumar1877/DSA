@@ -246,6 +246,22 @@ class BinaryTree {
     return current;
 
   }
+  
+  isBst(current = this.root, min = null, max = null) {
+    if (current === null) {
+        return true;
+    }
+
+    if (min !== null && current.data <= min) {
+        return false;
+    }
+
+    if (max !== null && current.data >= max) {
+        return false;
+    }
+
+    return this.isBst(current.left, min, current.data) && this.isBst(current.right, current.data, max);
+}
 
 
 }
@@ -253,21 +269,21 @@ class BinaryTree {
 // Usage example
 const BT = new BinaryTree();
 
-// BT.insert(100);
-// BT.insert(200);
-// BT.insert(50);
-// BT.insert(25);
-// BT.insert(75);
-// BT.insert(150);
-// BT.insert(250);
+BT.insert(100);
+BT.insert(200);
+BT.insert(50);
+BT.insert(25);
+BT.insert(75);
+BT.insert(150);
+BT.insert(250);
 
-BT.recursiveInsert(100);
-BT.recursiveInsert(200);
-BT.recursiveInsert(50);
-BT.recursiveInsert(25);
-BT.recursiveInsert(75);
-BT.recursiveInsert(150);
-BT.recursiveInsert(250);
+// BT.recursiveInsert(100);
+// BT.recursiveInsert(200);
+// BT.recursiveInsert(50);
+// BT.recursiveInsert(25);
+// BT.recursiveInsert(75);
+// BT.recursiveInsert(150);
+// BT.recursiveInsert(250);
 
 // // Inorder Traversal
 // BT.inOrder(BT.root);  //25, 50, 75, 100, 150, 200, 250
@@ -293,9 +309,10 @@ BT.recursiveInsert(250);
 // BT.postOrder();
 // BT.preOrder();
 // BT.delete(200);
-BT.recursivDelete(100)
+// BT.recursivDelete(100);
 BT.levelOrder();
 // console.log(BT.maxNode());
 // console.log(BT.recursiveMax());
 // console.log(BT.search(250));
 // console.log(BT.recursiveSearch(100));
+console.log(BT.isBst())
