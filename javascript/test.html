@@ -23,6 +23,43 @@
         <b>Throttle: </b>
         <span id="throttle"></span>
     </div>
+
+    <ul id="list">
+        <li><button>Item 1</button></li>
+        <li><button>Item 2</button></li>
+        <li><button>Item 3</button></li>
+    </ul>
+    <button id="addItem">Add Item</button>
+    
+    <script>
+        const list = document.getElementById('list');
+        const addItem = document.getElementById('addItem');
+        
+        // Event delegation to handle clicks on buttons within the list
+        list.addEventListener('click', (event) => {
+            if (event.target.tagName === 'BUTTON') {
+                console.log('Button clicked:', event.target.textContent);
+            }
+        });
+        
+        // Adding new items dynamically
+        addItem.addEventListener('click', () => {
+            const newItem = document.createElement('li');
+            newItem.innerHTML = '<button>New Item</button>';
+            list.appendChild(newItem);
+        });
+
+        console.log('%c This is a styled message', 'color: blue; font-size: 20px;');
+        console.log('%c This is a %c styled %c message', 
+            'color: red; font-weight: bold;', 
+            'color: green; background: yellow;', 
+            'color: blue; font-size: 16px;');
+            console.log('%c Success: %c The operation completed successfully', 
+            'color: white; background-color: green;', 
+            'color: green; background-color: lightgreen;');
+
+    </script>
+    
     
 </body>
 </html>

@@ -1,4 +1,4 @@
-class MaxHeap{
+class MinHeap{
     constructor(){
         this.heap = [];
     }
@@ -20,7 +20,7 @@ class MaxHeap{
     }
 
     minHeap(arr){
-        let heapSize = arr.length;
+        let heapSize = arr.length-1;
 
         for(let i = Math.floor(arr.length/2)-1; i >= 0; i--){
             this.heapify(arr, i, heapSize);
@@ -30,65 +30,61 @@ class MaxHeap{
     }
 
     heapify(arr, i, heapSize){
-     let smallest = i;
-     let leftChild = 2 * i + 1;
-     let rightChild = 2 * i + 2;
-     
-     if(leftChild < heapSize && arr[leftChild] < arr[smallest]){
-        smallest = leftChild;
-     }
+        let smallest = i;
+        let left = 2 * i + 1;
+        let right = 2 * i + 2;
 
-     if(rightChild < heapSize && arr[rightChild] < arr[smallest]){
-        smallest = rightChild;
-     }
+        if(left < heapSize && arr[left] < arr[smallest]){
+            smallest = left;
+        }
 
-     if(smallest !== i){
-        [arr[smallest] , arr[i]] = [arr[i], arr[smallest]];
-        this.heapify(arr, smallest, heapSize);        
-     }
-     
+        if(right < heapSize && arr[right] < arr[smallest]){
+            smallest = right;
+        }
+
+        if(smallest !== i){
+            [arr[i], arr[smallest]] = [arr[smallest], arr[i]];
+            this.heapify(arr, smallest, heapSize);
+        }
+    }
+
+    remove(){
+        let removed = this.heap[0];
+        this.heap[0] = this.heap.pop();
+        this.heapify(this.heap, 0, this.heap.length)
     }
 
     heapSort(arr){
         this.minHeap(arr);
-
-        for(let i = arr.length - 1; i > 0; i--){
+        for(let i = arr.length-1; i >= 0; i--){
             [arr[0], arr[i]] = [arr[i], arr[0]];
 
             this.heapify(arr, 0, i);
         }
-
-        return arr;
+      return arr;
     }
-
-    remove(){
-        if(this.heap.length === 0){
-            return;
-        }
-        this.heap[0] = this.heap.pop();
-        this.heapify(this.heap, 0, this.heap.length);
-    }
-
-
-
-
-
 
 }
-const MH = new MaxHeap();
-MH.insert(100)
-MH.insert(200)
-MH.insert(600)
-MH.insert(800)
-MH.insert(900)
-MH.insert(300)
-// MH.remove()
-// MH.remove()
-// MH.remove()
 
-// console.log(MH.minHeap(MH.heap))
-console.log(MH)
 
-let arr = [1, 2, 3, 4, 5, 77, 0, 7, 3, 5];
 
-console.log(MH.heapSort(arr))
+const MN = new MinHeap();
+
+MN.insert(100);
+MN.insert(10);
+MN.insert(900);
+MN.insert(7700);
+MN.insert(600);
+MN.insert(500);
+MN.remove()
+MN.remove()
+MN.remove()
+console.log(MN)
+let arr = [981, 267, 3, 4, 5, 77, 0, 7, 3, 5];
+
+// console.log(MN.heapSort(arr))
+console.log(MN.minHeap(arr));
+
+// console.log(arr)
+
+console.log(MN.heapSort(arr))

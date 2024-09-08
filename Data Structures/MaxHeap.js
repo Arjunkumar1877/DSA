@@ -1,62 +1,60 @@
-class MaxHeap {
-    constructor() {
+class MaxHeap{
+    constructor(){
         this.heap = [];
     }
 
-    insert(data) {
+    insert(data){
         let n = this.heap.length;
         this.heap[n] = data;
         let i = n;
 
-        while (i > 0) {
-            let parent = Math.floor((i - 1) / 2);
+        while(i > 0){
+            let parent = Math.floor((i - 1)/2);
 
-            if (this.heap[i] > this.heap[parent]) {
+            if(this.heap[i] > this.heap[parent]){
                 [this.heap[i], this.heap[parent]] = [this.heap[parent], this.heap[i]];
                 i = parent;
-            } else {
-                return;
+            }else{
+                return
             }
         }
     }
 
-    maxHeap(arr) {
-        let heapSize = arr.length;
+    maxHeap(arr){
+        let heapsize = arr.length-1;
 
-        for (let i = Math.floor(arr.length / 2) - 1; i >= 0; i--) {
-            this.heapify(arr, i, heapSize);
+        for(let i = Math.floor(arr.length/2)-1; i >= 0; i--){
+            this.heapify(arr, i, heapsize);
         }
-
         return arr;
     }
 
-    heapify(arr, i, heapSize) {
+    heapify(arr, i, heapsize){
         let largest = i;
-        let leftChild = 2 * i + 1;
-        let rightChild = 2 * i + 2;
+        let left = 2 * i + 1;
+        let right = 2 * i + 2;
 
-        if (leftChild < heapSize && arr[leftChild] > arr[largest]) {
-            largest = leftChild;
+        if(left < heapsize && arr[left] > arr[largest]){
+            largest = left;
         }
 
-        if (rightChild < heapSize && arr[rightChild] > arr[largest]) {
-            largest = rightChild;
+        if(right < heapsize && arr[right] > arr[largest]){
+            largest = right;
         }
 
-        if (largest !== i) {
+        if(largest !== i){
             [arr[i], arr[largest]] = [arr[largest], arr[i]];
-            this.heapify(arr, largest, heapSize);
+            this.heapify(arr, largest, heapsize);
         }
     }
 
-    heapSort(arr) {
+    heapSort(arr){
         this.maxHeap(arr);
-        for (let i = arr.length - 1; i > 0; i--) {
-            [arr[0], arr[i]] = [arr[i], arr[0]];  // Corrected swap
+        for(let i = arr.length-1; i >= 0; i--){
+            [arr[i], arr[0]] = [arr[0], arr[i]];
 
             this.heapify(arr, 0, i);
         }
-
         return arr;
     }
 
@@ -64,11 +62,11 @@ class MaxHeap {
         let removed = this.heap[0];
 
         this.heap[0] = this.heap.pop();
-        this.heapify(this.heap, 0, this.heap.length);
-        return removed;
+        this.heapify(this.heap, 0, this.heap.length)
     }
 
 }
+
 
 const MX = new MaxHeap();
 
@@ -80,24 +78,13 @@ MX.insert(600);
 MX.insert(500);
 
 MX.remove()
-// MX.remove()
-
-console.log(MX);  
+MX.remove()
+console.log(MX)
 
 let arr = [1, 2, 3, 4, 5, 77, 0, 7, 3, 5];
-
-console.log(MX.heapSort(arr));  
-
+MX.maxHeap(arr);
 
 
+console.log(arr)
 
-// class MaxHeap{
-//     constructor(){
-//         this.heap = [];
-//     }
-
-//     insert(data){
-//         let n = this.heap.length;
-
-//     }
-// }
+console.log(MX.heapSort(arr))

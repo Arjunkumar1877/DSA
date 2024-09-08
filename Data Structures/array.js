@@ -892,14 +892,14 @@ function findVowels(str){
 
 
 
-const nums = [1,2,3,34,54,54,36,,54,654, () => console.log("hoi") , null  ,undefined , {} ,[] ,"oi"];
+// const nums = [1,2,3,34,54,54,36,,54,654, () => console.log("hoi") , null  ,undefined , {} ,[] ,"oi"];
 
 
-function reduceSum(arr){
-    const num = arr.reduce((acc, curr)=> acc + (typeof curr === 'number' ? curr : 0), 0);
+// function reduceSum(arr){
+//     const num = arr.reduce((acc, curr)=> acc + (typeof curr === 'number' ? curr : 0), 0);
 
-    return num;
-}
+//     return num;
+// }
 
 // console.log(reduceSum(nums));
 
@@ -953,3 +953,26 @@ function search(arr, target, left, right){
 // }
 
 // counter(10);
+
+
+
+
+
+
+
+function floyidTriange(n){
+    let l = "";
+    let m = 0;
+
+    for(let i = 0; i < n; i++){
+        for(let j = 0; j < i; j++){
+            m++;
+            l += " " + m;
+        }
+       l += '\n';
+    }
+
+    return l;
+}
+
+console.log(floyidTriange(5))

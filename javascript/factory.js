@@ -24,3 +24,12 @@ console.log(person1.getAge());
 person1.setAge(31);
 console.log(person1.getAge()); 
 person1.greet();  
+
+
+const person = {
+    name: "Bob",
+    age: 25,
+    profession: "Artist"
+};
+console.log(Object.entries(person))
+

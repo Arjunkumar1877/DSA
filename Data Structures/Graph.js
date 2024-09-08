@@ -1,8 +1,9 @@
+
 class Graph{
     constructor(){
         this.adjacencyList = {};
     }
-    
+
     addVertex(vertex){
         if(!this.adjacencyList[vertex]){
             this.adjacencyList[vertex] = new Set();
@@ -16,6 +17,7 @@ class Graph{
         if(!this.adjacencyList[vertex2]){
             this.addVertex(vertex2);
         }
+
         this.adjacencyList[vertex1].add(vertex2);
         this.adjacencyList[vertex2].add(vertex1);
     }
@@ -37,102 +39,104 @@ class Graph{
         delete this.adjacencyList[vertex];
     }
 
-    dfs(vertex){
-        let visited = new Set();
+   dfs(vertex){
+    let visited = new Set();
 
-        let DfsRecursive = (vertex)=>{
-            if(vertex === null){
-                return;
-            }
-            console.log(vertex);
-            visited.add(vertex);
+    const dfsRecursive = (vertex)=>{
+        if(!vertex === null){
+            return
+        }
 
-            for(let vert of this.adjacencyList[vertex]){
-                if(!visited.has(vert)){
-                    DfsRecursive(vert);
-                }
+        console.log(vertex);
+        visited.add(vertex);
+
+        for(let vert of this.adjacencyList[vertex]){
+            if(!visited.has(vert)){
+                dfsRecursive(vert);
             }
         }
-        DfsRecursive(vertex);
     }
+    dfsRecursive(vertex);
+   }
 
-    bfs(vertex){
-        let visited = new Set();
-        let queue = [];
-        visited.add(vertex);
-        queue.push(vertex);
+   bfs(vertex){
+    let visited = new Set();
+    let queue = [];
+    visited.add(vertex);
+    queue.push(vertex)
 
-        while(queue.length){
-            let current = queue.shift();
-            console.log(current);
-            let neighbours = this.adjacencyList[current];
-
-            for(const vert of neighbours){
+    while(queue.length){
+        let current = queue.shift();
+        console.log(current);
+        let neighbor = this.adjacencyList[current];
+        for(let vert of neighbor){
             if(!visited.has(vert)){
                 visited.add(vert);
-                queue.push(vert);
-            }
+                queue.push(vert)
             }
         }
     }
 
-    checkConnectDfs(vertex){
-        let visited = new Set();
-        let DfsRecursive = (vertex)=>{
-            if(!vertex || visited.has(vertex)){
-                return;
-            }
-            visited.add(vertex);
-            for(let vert of this.adjacencyList[vertex]){
-                DfsRecursive(vert);
-            }
-        };
-        DfsRecursive(vertex);
-        return visited;
-    }
+   }
 
-    isConnnected(){
-        const vertices = Object.keys(this.adjacencyList);
-        if(vertices.length === 0) return true;
+   checkDfs(vertex){
+    let visited = new Set();
 
-        let visited = this.checkConnectDfs(vertices[0]);
-        return visited.size === vertices.length;
-    }
-
-    hasCycle(){
-        let visited = new Set();
-
-        const dfs = (vertex, parent)=>{
-            visited.add(vertex);
-
-            for(let neighbour of this.adjacencyList[vertex]){
-              if(!visited.has(neighbour)){
-                if(dfs(neighbour, vertex)){
-                    return true;
-                }
-              }else if(neighbour !== parent){
-                return true;
-              }
-            }
-            return false;
+    let dfsRecursiveCheck = (vertex)=>{
+        if(!vertex || visited.has(vertex)){
+            return;
         }
 
-        for(let vertex in this.adjacencyList){
-            if(!visited.has(vertex)){
-                if(dfs(vertex, null)){
+        visited.add(vertex);
+        for(let vert of this.adjacencyList[vertex]){
+            dfsRecursiveCheck(vert);
+        }
+    }
+
+    dfsRecursiveCheck(vertex);
+    return visited;
+   }
+
+   checkIsConnected(){
+    const vertices = Object.keys(this.adjacencyList);
+
+    if(vertices.length === 0){
+        return false;
+    }
+
+    let visited = this.checkDfs(vertices[0]);
+
+    return visited.size === vertices.length;
+
+   }
+
+   hasACycle(){
+    let visited = new Set();
+
+    const dfs = (vertex, parent)=>{
+        visited.add(vertex);
+
+        for(let neighbor of this.adjacencyList[vertex]){
+            if(!visited.has(neighbor)){
+                if(dfs(neighbor, vertex)){
                     return true;
                 }
+            }else if(neighbor !== parent){
+                   return true;
             }
         }
         return false;
-
     }
 
-    display(){
-        for(let vert in this.adjacencyList){
-            console.log(vert + " -->>>>>>> -----  " + [...this.adjacencyList[vert]]);
+    for(let vert in this.adjacencyList){
+        if(!visited.has(vert)){
+            if(dfs(vert, null)){
+                return true;
+            }
         }
     }
+    return false;
+   }
 
 }
 
@@ -146,15 +150,17 @@ G.addVertex("D");
 
 G.addEdges("A", "B");
 G.addEdges("B", "C");
-G.addEdges("C", "D");
+// G.addEdges("C", "D");
 G.addEdges("D", "A");
-// G.removeEdges("A", "B");
-// G.removeVertex("A")
-console.log(G)
+// G.dfs("A");
+// G.removeVertex('A')
+// console.log(G);
 
-G.dfs("A");
-G.bfs("A")
-G.display()
-console.log(G.isConnnected());
-console.log(G.hasCycle())
+G.dfs("B");
+// G.bfs("A");
 
+console.log(G.checkDfs('B'));
+
+console.log(G.checkIsConnected());
+
+console.log(G.hasACycle())
