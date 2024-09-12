@@ -206,38 +206,38 @@ return false
 
 
   recursiveDelete(data){
-    this.root = this.recursiceDeleteHelper(data, this.root);
+    this.root = this.recursiveDeleteHelper(data, this.root);
   }
 
-  recursiceDeleteHelper(data, current){
+  recursiveDeleteHelper(data, current){
     if(current === null){
-      return current;
+      return current
     }
 
     if(data < current.data){
-      current.left = this.recursiceDeleteHelper(data, current.left);
+      current.left = this.recursiveDeleteHelper(data, current.left);
     }else if(data > current.data){
-      current.right = this.recursiceDeleteHelper(data, current.right);
+      current.right = this.recursiveDeleteHelper(data, current.right);
     }else{
       if(!current.left && !current.right){
         return null;
-        }
+      }
 
-        if(!current.left){
-          return current.right;
-        }
+      if(!current.left){
+        return current.right;
+      }
 
-        if(!current.right){
-          return current.left;
-        }
+      if(!current.right){
+        return current.left;
+      }
 
-        current.data  = this.recursiveMinNode(current.right);
-        current.right = this.recursiceDeleteHelper(current.data, current.right);
+      current.data = this.recursiveMinNode(current.right);
+      current.right = this.recursiveDeleteHelper(current.data, current.right)
     }
-    return current;
+    return current
 
   }
- 
+
 
 isBst(){
   return this.isBstHelper(this.root, -Infinity, Infinity);
@@ -300,7 +300,8 @@ BT.insert(250);
 // BT.delete(50);
 // BT.delete(75);
 // BT.delete(25);
-// BT.levelOrder()
+BT.recursiveDelete(100)
+BT.levelOrder()
 
 
 

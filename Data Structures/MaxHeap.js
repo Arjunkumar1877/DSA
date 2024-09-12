@@ -21,7 +21,7 @@ class MaxHeap{
     }
 
     maxHeap(arr){
-        let heapsize = arr.length-1;
+        let heapsize = arr.length;
 
         for(let i = Math.floor(arr.length/2)-1; i >= 0; i--){
             this.heapify(arr, i, heapsize);

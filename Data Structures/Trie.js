@@ -69,7 +69,7 @@ class Trie{
     }
 
     for(let [char, child] of node.children){
-      this.findAllWords(child, prefix+char, result)
+      this.findAllWords(child, prefix+char, result);
     }
 
   }
@@ -157,7 +157,7 @@ class Trie{
         node = node.children.get(word[i]);
     }
     return node.isEndOfWord;
-}
+  }
 
 
 
@@ -171,15 +171,17 @@ T.insert("Apply");
 T.insert("Orange");
 T.insert("Orangetrg");
 
-console.log(T.search("Apple"));
-console.log(T.startsWith("Agg"))
+// console.log(T.search("Apple"));
+// console.log(T.startsWith("Agg"))
 T.insertSufix("Arjun")
 T.insertPrefix("Arjun")
-// T.delete('Orange')
-console.log(T.autoComplete("O"))
+// // T.delete('Orange')
+// console.log(T.autoComplete("O"))
 
-console.log(T.countPrefix("O"))
+// console.log(T.countPrefix("O"))
 
-console.log(T.listAllWords())
+// console.log(T.listAllWords())
 
 console.log(T.isSuffix('Arjun'))
+
+// console.log(T)
