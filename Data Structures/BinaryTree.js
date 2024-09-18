@@ -16,28 +16,7 @@ class BinaryTree{
 
   insert(data){
     let newNode = new Node(data);
-    // if(this.root === null){
-    //   this.root = newNode;
-    // }else{
-    //   let current = this.root;
 
-    //   while(current !== null){
-    //     if(newNode.data < current.data){
-    //       if(current.left === null){
-    //         current.left = newNode;
-    //       }else{
-    //         current = current.left;
-    //       }
-    //     }else{
-    //       if(current.right === null){
-    //        current.right = newNode;
-    //       }else{
-    //         current = current.right;
-    //       }
-    //     }
-    //   }
-
-    // }
     if(this.root === null){
       this.root = newNode;
     }else{
@@ -264,7 +243,7 @@ isBstHelper(current, min, max){
 // Usage example
 const BT = new BinaryTree();
 
-BT.insert(100);
+BT.insert(879100);
 BT.insert(200);
 BT.insert(50);
 BT.insert(25);
@@ -281,7 +260,7 @@ BT.insert(250);
 // BT.recursiveInsert(250);
 
 // // Inorder Traversal
-// BT.recursiveDelete(100)
+// BT.(100)
 // BT.recursiveDelete(150)
 // BT.recursiveDelete(25)
 // BT.inOrder(BT.root);  //25, 50, 75, 100, 150, 200, 250
@@ -289,7 +268,7 @@ BT.insert(250);
 // console.log(BT.recursiveSearch(25));
 // // Preorder Traversal
 // BT.preOrder(BT.root);  //  100, 50, 25, 75, 200, 150, 250
-// BT.postOrder(BT.root) // 25, 50, 75, 100, 150, 200, 250, 100
+// BT.postOrder(BT.root) // 25 ,75, 50, 150, 250, 200, 100
 
 // console.log(BT.root.data);
 
@@ -300,7 +279,7 @@ BT.insert(250);
 // BT.delete(50);
 // BT.delete(75);
 // BT.delete(25);
-BT.recursiveDelete(100)
+// BT.recursiveDelete(100)
 BT.levelOrder()
 
 
@@ -326,7 +305,7 @@ BT.levelOrder()
 // console.log(BT.recursiveMaxNode());
 // console.log(BT.search(250));
 // console.log(BT.recursiveSearch(100));
-// console.log(BT.isBst())
+console.log(BT.isBst())
 // console.log(BT)
 
 

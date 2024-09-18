@@ -43,7 +43,7 @@ class Graph{
     let visited = new Set();
 
     const dfsRecursive = (vertex)=>{
-        if(!vertex === null){
+        if(vertex === null){
             return
         }
 

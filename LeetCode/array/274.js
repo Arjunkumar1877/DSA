@@ -72,12 +72,11 @@ for(let num of Object.keys(obj)){
   if(num > k){
     obj[num]++;
   }
-
-
 }
-
 // let num = 0;
+console.log(obj);
 
 
-console.log(obj)
+
+
 
