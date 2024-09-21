@@ -243,7 +243,7 @@ class LinkedList{
 
       let removedData = current.next;
        current.next = removedData.next;
-
+     
     }
   }
 

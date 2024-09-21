@@ -29,10 +29,10 @@ QS.enqueue(300);
 QS.enqueue(400);
 QS.enqueue(500);
 
-console.log(QS.dequeue()
-)
-QS.dequeue()
-QS.dequeue()
+console.log(QS.dequeue());
+
+QS.dequeue();
+QS.dequeue();
 
 
 console.log(QS);

@@ -1081,3 +1081,39 @@ let tableObject = [
 
 //  console.log(findCount(array));
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let obj = { a: { b: { c: { d: 77 }}}};
+
+// const { a: { b: { c: {d: bvalue} } } } = obj;
+// console.log(bvalue); 
+
+
+
+
+
+
+
+
+
+
+
+
+// const [a, b, c] = [1, 2, 3, 4];
+
+// console.log(a)
+// console.log(b)
+// console.log(c)

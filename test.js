@@ -1,5 +1,3 @@
-const http = require('http');
-const fs = require('fs');
 
 // const server = http.createServer((req, res)=>{
  
@@ -32,3 +30,13 @@ const fs = require('fs');
 // }
 
 
+
+
+
+
+const obj = {a: { b: { c: {d: 67} } }};
+
+
+
+const { a: { b } } = obj;
+console.log(b)

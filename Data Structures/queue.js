@@ -156,14 +156,13 @@ class CircularQueue{
     }
 
     equeue(element){
-        if(this.isEmpty()){
+       
             this.rear = (this.rear + 1) % this.capacity;
             this.items[this.rear] = element;
             this.currentLength += 1;
             if(this.front === -1){
                 this.front = this.rear;
             }
-        }
     }
 
     dequeue(){
