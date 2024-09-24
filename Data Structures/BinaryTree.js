@@ -243,21 +243,13 @@ isBstHelper(current, min, max){
 // Usage example
 const BT = new BinaryTree();
 
-BT.insert(879100);
-BT.insert(200);
-BT.insert(50);
-BT.insert(25);
-BT.insert(75);
-BT.insert(150);
-BT.insert(250);
-
-// BT.recursiveInsert(100);
-// BT.recursiveInsert(200);
-// BT.recursiveInsert(50);
-// BT.recursiveInsert(25);
-// BT.recursiveInsert(75);
-// BT.recursiveInsert(150);
-// BT.recursiveInsert(250);
+BT.recursiveInsert(100);
+BT.recursiveInsert(200);
+BT.recursiveInsert(50);
+BT.recursiveInsert(25);
+BT.recursiveInsert(75);
+BT.recursiveInsert(150);
+BT.recursiveInsert(250);
 
 // // Inorder Traversal
 // BT.(100)
@@ -305,7 +297,7 @@ BT.levelOrder()
 // console.log(BT.recursiveMaxNode());
 // console.log(BT.search(250));
 // console.log(BT.recursiveSearch(100));
-console.log(BT.isBst())
+// console.log(BT.isBst())
 // console.log(BT)
 
 

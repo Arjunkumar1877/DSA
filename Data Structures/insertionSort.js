@@ -15,14 +15,14 @@
 // }
 
 // console.log(arr)
-let arr = [5, 8, 9, 4, 3, 9, 3, 9, 0, 4];
+let arr = [8, 3, 4 , 1 , 2];
 
 let num;
 let j = 0;
 for(let i = 0; i < arr.length; i++){
   num = arr[i];
   j = i - 1;
-  while(j >= 0 && arr[j] < num){
+  while(j >= 0 && arr[j] > num){
     arr[j+1] = arr[j];
     j--;
   }

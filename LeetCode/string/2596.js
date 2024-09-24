@@ -1,4 +1,4 @@
-var vowelStrings = function(words, left, right) {
+var vowelStrings = function(words, left = 0, right = words.length-1) {
 
     const set = new Set(["a" ,"e" ,"i" ,"o" ,"u"])
     let count = 0
@@ -12,3 +12,6 @@ var vowelStrings = function(words, left, right) {
   return count
     
 };
+let strs = ["Arjun", "kumar vs ", "eio"];
+
+console.log(vowelStrings(strs))

@@ -14,7 +14,7 @@ function reverseStr(s, k){
 for(let i = 0; i < stra1.length; i++){
 
     if(i % 2 === 0){
-    stra1[i] =  stra1[i].reverse().join('')
+    stra1[i] =  stra1[i].reverse().join('');
     }
 }
 console.log(stra1)

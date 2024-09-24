@@ -138,6 +138,8 @@ class Graph{
     return false;
    }
 
+   
+
 }
 
 
@@ -163,4 +165,4 @@ console.log(G.checkDfs('B'));
 
 console.log(G.checkIsConnected());
 
-console.log(G.hasACycle())
+console.log(G.hasACycle());
